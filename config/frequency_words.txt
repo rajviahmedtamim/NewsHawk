@@ -2,11 +2,22 @@ Bangladesh
 বাংলাদেশ
 Dhaka
 ঢাকা
+Chittagong
+চট্টগ্রাম
++Hasina
++Sheikh
++BNP
++Awami
++Jamaat
 
 Cricket
 ক্রিকেট
++Bangladesh Cricket
++Tigers
 +Match
 +Series
++Shakib
++Mushfiqur
 
 AI
 ChatGPT

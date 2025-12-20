@@ -1,7 +1,7 @@
 """
-缓存服务
+Cache Service
 
-实现TTL缓存机制，提升数据访问性能。
+Implements TTL cache mechanism to improve data access performance.
 """
 
 import time
@@ -10,43 +10,43 @@ from threading import Lock
 
 
 class CacheService:
-    """缓存服务类"""
+    """Cache service class"""
 
     def __init__(self):
-        """初始化缓存服务"""
+        """Initialize cache service"""
         self._cache = {}
         self._timestamps = {}
         self._lock = Lock()
 
     def get(self, key: str, ttl: int = 900) -> Optional[Any]:
         """
-        获取缓存数据
+        Get cached data
 
         Args:
-            key: 缓存键
-            ttl: 存活时间（秒），默认15分钟
+            key: Cache key
+            ttl: Time to live (seconds), default 15 minutes
 
         Returns:
-            缓存的值，如果不存在或已过期则返回None
+            Cached value, returns None if not exists or expired
         """
         with self._lock:
             if key in self._cache:
-                # 检查是否过期
+                # Check if expired
                 if time.time() - self._timestamps[key] < ttl:
                     return self._cache[key]
                 else:
-                    # 已过期，删除缓存
+                    # Expired, delete cache
                     del self._cache[key]
                     del self._timestamps[key]
         return None
 
     def set(self, key: str, value: Any) -> None:
         """
-        设置缓存数据
+        Set cached data
 
         Args:
-            key: 缓存键
-            value: 缓存值
+            key: Cache key
+            value: Cache value
         """
         with self._lock:
             self._cache[key] = value
@@ -54,13 +54,13 @@ class CacheService:
 
     def delete(self, key: str) -> bool:
         """
-        删除缓存
+        Delete cache
 
         Args:
-            key: 缓存键
+            key: Cache key
 
         Returns:
-            是否成功删除
+            Whether successfully deleted
         """
         with self._lock:
             if key in self._cache:
