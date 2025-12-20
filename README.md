@@ -8,6 +8,14 @@
 
 ---
 
+## 📖 Documentation
+
+**👉 [Complete Setup Guide](SETUP_GUIDE.md)** - Start here for step-by-step setup instructions!
+
+**📚 [All Documentation](docs/README.md)** - Browse all guides and references
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
